@@ -23,10 +23,12 @@ var sharejs = require('share');
 // set up redis server
 var redisClient;
 if (process.env.REDIS_URL) {
+    console.log("Using redis credentials from environment");
     var rtg   = require("url").parse(process.env.REDIS_URL);
     redisClient = require("redis").createClient(rtg.port, rtg.hostname);
     redisClient.auth(rtg.auth.split(":")[1]);
 } else {
+    console.log("Using a local redis");
     redisClient = require("redis").createClient();
 }
 
