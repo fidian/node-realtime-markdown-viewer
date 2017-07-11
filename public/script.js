@@ -57,9 +57,9 @@ window.onload = function() {
     pad.addEventListener('input', convertTextAreaToMarkdown);
 
     // ignore if on home page
-    if(document.location.pathname.length < 2){
+    if(document.location.pathname.length > 1){
         // implement share js
-        sharejs.open(document.location.pathname, 'text', function(error, doc) {
+        sharejs.open(document.location.pathname.substring(1), 'text', function(error, doc) {
             doc.attach_textarea(pad);
             convertTextAreaToMarkdown();
         });        
