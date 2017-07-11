@@ -1,6 +1,7 @@
 /* public/script.js */
 
 window.onload = function() {
+    showdown.setFlavor("github");
     var converter = new showdown.Converter();
     var pad = document.getElementById('pad');
     var markdownArea = document.getElementById('markdown'); 
